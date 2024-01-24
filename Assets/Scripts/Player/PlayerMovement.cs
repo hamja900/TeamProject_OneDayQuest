@@ -36,7 +36,26 @@ public class PlayerMovement : MonoBehaviour
     private void ApplyMovement(Vector2 dir)
     {
         dir = dir * speed;
+        MoveLimit();
 
         _rigidbody.velocity = dir;
+
+        
+    }
+
+    private void MoveLimit()    // 캐릭터가 화면 밖으로 넘어가지 않도록 설정
+    {
+        Vector2 myPos = transform.position;
+
+        if(myPos.x < -2.3f)
+        {
+            myPos.x = -2.3f;
+        }
+        else if(myPos.x > 2.3f)
+        {
+            myPos.x = 2.3f;
+        }
+
+        transform.position = myPos;
     }
 }
