@@ -15,5 +15,6 @@ public class InputController : CharacterController
     {
         Vector2 moveInput = value.Get<Vector2>().normalized;
         CallMoveEvent(moveInput);
+        
     }
 }
