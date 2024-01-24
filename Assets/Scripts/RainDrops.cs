@@ -1,31 +1,32 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class RainDrops : MonoBehaviour
 {
+    [SerializeField] Rain baseRain;
+    public Rain rainProperties { get; private set; }
+    public List<Rain> rainModifiers = new List<Rain>();
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
+        UpdateRainProperty();
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void UpdateRainProperty()
     {
-        
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.tag == "ground")
+        DropSO dropSO = null;
+        if(baseRain.dropSO != null)
         {
-
+            dropSO = Instantiate(baseRain.dropSO);
         }
-        else if(collision.gameObject.tag == "Player")
-        {
 
-        }
+        rainProperties = new Rain { dropSO = dropSO };
+        rainProperties.scoreType =baseRain.scoreType;
+        rainProperties.score = baseRain.score;
+        rainProperties.speed = baseRain.speed;
+
     }
 }
