@@ -308,19 +308,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 141452771}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1736068060}
+  m_Father: {fileID: 770269098}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.8}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1, y: 0.1}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &141452773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -479,7 +479,10 @@ MonoBehaviour:
   highDropSO: {fileID: 11400000, guid: e3783ec1f924b054f86113dcb8baf0d3, type: 2}
   bugSO: {fileID: 11400000, guid: dfd1e9cef5f08a64db2bdd8a9a9771f1, type: 2}
   rainSpawnPosition: {fileID: 614324911}
-  StageText: {fileID: 0}
+  StageText: {fileID: 1954648729}
+  current: 0
+  stage: 1
+  maxcount: 0
 --- !u!1 &365423349
 GameObject:
   m_ObjectHideFlags: 0
@@ -1425,7 +1428,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 141452772}
   m_Father: {fileID: 1736068060}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1562,6 +1566,7 @@ GameObject:
   - component: {fileID: 887558789}
   - component: {fileID: 887558788}
   - component: {fileID: 887558787}
+  - component: {fileID: 887558793}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1712,6 +1717,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &887558793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 887558786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d944392aca7df0c40843b415c64a8802, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waterGaugeImage: {fileID: 141452773}
 --- !u!1 &1005061143
 GameObject:
   m_ObjectHideFlags: 0
@@ -2857,7 +2875,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 770269098}
-  - {fileID: 141452772}
   m_Father: {fileID: 1116072946}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

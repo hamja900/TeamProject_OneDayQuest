@@ -19,9 +19,9 @@ public class gameManager : MonoBehaviour
     public GameObject rainSpawnPosition;
     public Text StageText; // 당근 성장단계 텍스트
 
-    private int current = 0;
-    private int stage = 1;
-    private int maxcount = 0;
+    public int current = 0;
+    public int stage = 1;
+    public int maxcount = 0;
 
     void Awake()
     {
