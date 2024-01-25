@@ -70,10 +70,7 @@ public class gameManager : MonoBehaviour
         maxcount = stage * 3;
         current++;
         
-        if(stage > 3)
-        {
-            stage = 1;
-        }
+       
         if (current == maxcount)
         {
             StageText.text = stage.ToString();
@@ -81,6 +78,10 @@ public class gameManager : MonoBehaviour
             current = 0;
         }
 
+        if (stage > 3)
+        {
+            stage = 1;
+        }
     }  
 }
 
