@@ -20,8 +20,7 @@ public class DropManager : MonoBehaviour
     public void DropFromSky(Vector3 dropPosition, DropSO dropSO )
     {
         GameObject obj = ObjectPool.SpawnFromPool(dropSO.DropNameTag);
-        float x = Random.Range(-2.7f, 2.7f);
-        dropPosition = new Vector3(x, 4, 0);
+        
         obj.SetActive(true);
         
 
