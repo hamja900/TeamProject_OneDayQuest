@@ -14,7 +14,6 @@ public class gameManager : MonoBehaviour
     void Awake()
     {
         I = this;
-        raindrops = rain.GetComponent<RainDrops>();
     }
 
     // Start is called before the first frame update

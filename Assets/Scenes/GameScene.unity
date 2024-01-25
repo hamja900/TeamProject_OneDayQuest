@@ -265,6 +265,12 @@ MonoBehaviour:
   - tag: NormalRain
     prefab: {fileID: 4160517145761403932, guid: 2700b288abde44042a4fcd2785edf5af, type: 3}
     size: 20
+  - tag: HighRain
+    prefab: {fileID: 4160517145761403932, guid: 4234fd1225c6c2449b5eaf11ed9981ee, type: 3}
+    size: 5
+  - tag: Bug
+    prefab: {fileID: 4160517145761403932, guid: 28036952537ca6041a5b0b8922f039e7, type: 3}
+    size: 8
 --- !u!1 &340793115
 GameObject:
   m_ObjectHideFlags: 0

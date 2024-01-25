@@ -19,15 +19,10 @@ public class DropManager : MonoBehaviour
     }
     public void DropFromSky(Vector3 dropPosition, DropSO dropSO )
     {
-        
         GameObject obj = ObjectPool.SpawnFromPool(dropSO.DropNameTag);
         obj.transform.position = dropPosition;
         
         obj.SetActive(true);
-        
-
-
-        
     }
 
 }
