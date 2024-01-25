@@ -6,9 +6,12 @@ using UnityEngine;
 public class RainDrops : MonoBehaviour
 {
     [SerializeField] Rain baseRain;
+    public DropSO dropSO;
     public Rain rainProperties { get; private set; }
     public List<Rain> rainModifiers = new List<Rain>();
     public GameObject prefab;
+
+
 
     private void Awake()
     {
@@ -31,8 +34,8 @@ public class RainDrops : MonoBehaviour
         {
             prefab.SetActive(false);
         }
-    }
 
+    }
     private void UpdateRainProperty()
     {
         DropSO dropSO = null;
