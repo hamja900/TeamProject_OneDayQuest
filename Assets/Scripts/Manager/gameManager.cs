@@ -20,6 +20,8 @@ public class gameManager : MonoBehaviour
 
     public GameObject rainSpawnPosition;
     public Text StageText; // 당근 성장단계 텍스트
+    public Text MaxCarrotTxt;
+    public Text CurrentTxt;
 
     public GameObject gameOver;
     public GameObject gameClear;
@@ -57,6 +59,7 @@ public class gameManager : MonoBehaviour
         carrotCount = 0;
         bugCount = 0;
         Time.timeScale = 1f;
+        MaxCarrotTxt.text = maxCarrot.ToString();
     }
 
     // Update is called once per frame
@@ -114,6 +117,7 @@ public class gameManager : MonoBehaviour
         if (stage == 3 && current >= maxcount)
         {
             carrotCount++;
+            CurrentTxt.text = carrotCount.ToString();
             if(maxCarrot == carrotCount)
             {
                 GameClear();

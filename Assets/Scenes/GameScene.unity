@@ -481,6 +481,8 @@ MonoBehaviour:
   carrotObj: {fileID: 365423349}
   rainSpawnPosition: {fileID: 614324911}
   StageText: {fileID: 1954648729}
+  MaxCarrotTxt: {fileID: 1577195298}
+  CurrentTxt: {fileID: 1220371483}
   gameOver: {fileID: 585400548}
   gameClear: {fileID: 539044056}
   current: 0
@@ -651,7 +653,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &514342882
 GameObject:
@@ -1428,7 +1430,7 @@ RectTransform:
   - {fileID: 585400549}
   - {fileID: 539044057}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
