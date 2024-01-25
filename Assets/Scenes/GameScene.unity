@@ -320,6 +320,8 @@ MonoBehaviour:
   rain: {fileID: 4160517145761403932, guid: 2700b288abde44042a4fcd2785edf5af, type: 3}
   raindrops: {fileID: 0}
   dropSO: {fileID: 11400000, guid: 28871d0eb2404e54d85f26ce5a5d659b, type: 2}
+  highDropSO: {fileID: 11400000, guid: e3783ec1f924b054f86113dcb8baf0d3, type: 2}
+  bugSO: {fileID: 11400000, guid: dfd1e9cef5f08a64db2bdd8a9a9771f1, type: 2}
   rainSpawnPosition: {fileID: 614324911}
 --- !u!1 &365423349
 GameObject:

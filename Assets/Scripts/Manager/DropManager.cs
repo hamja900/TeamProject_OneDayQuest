@@ -21,7 +21,7 @@ public class DropManager : MonoBehaviour
     {
         GameObject obj = ObjectPool.SpawnFromPool(dropSO.DropNameTag);
         obj.transform.position = dropPosition;
-        
+        Debug.Log(obj.name);
         obj.SetActive(true);
     }
 
