@@ -24,9 +24,10 @@ public class RainDrops : MonoBehaviour
         float x = UnityEngine.Random.Range(-2.7f, 2.7f);
         transform.position = new Vector3(x, 4, 0);
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "ground")
+        if (collision.gameObject.tag == "ground")
         {
             prefab.SetActive(false);
         }
@@ -34,8 +35,8 @@ public class RainDrops : MonoBehaviour
         {
             prefab.SetActive(false);
         }
-
     }
+
     private void UpdateRainProperty()
     {
         DropSO dropSO = null;
