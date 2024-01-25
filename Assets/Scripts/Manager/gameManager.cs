@@ -40,7 +40,7 @@ public class gameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        StageText.text = stage.ToString();
     }
     
     public void StartDrop()
@@ -66,20 +66,21 @@ public class gameManager : MonoBehaviour
 
 
     public void GrowthCarrot() //물방울 모으면 단계 상승
-    {
-        maxcount = stage * 3;
+    { 
         current++;
         
-        if(stage > 3)
+        maxcount = stage * 3;
+
+        if (stage == 3 && current >= maxcount)
         {
-            stage = 1;
+            stage = 0;
         }
-        if (current == maxcount)
+        if (current >= maxcount)
         {
-            StageText.text = stage.ToString();
             stage++;
             current = 0;
         }
+
 
     }  
 }
