@@ -51,8 +51,9 @@ public class RainDrops : MonoBehaviour
             }
             else if (gameObject.tag == "Bug")
             {
-                gameManager.I.GetPoint(2);
-                gameManager.I.GrowthCarrot();
+                //gameManager.I.GetPoint(2);
+                //gameManager.I.GrowthCarrot();
+                gameManager.I.BugCount();
                 prefab.SetActive(false);
             }
             

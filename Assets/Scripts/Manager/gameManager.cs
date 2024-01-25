@@ -18,9 +18,16 @@ public class gameManager : MonoBehaviour
     public GameObject rainSpawnPosition;
     public Text StageText; // 당근 성장단계 텍스트
 
+    public GameObject gameOver;
+    public GameObject gameClear;
+
     public int current = 0;
     public int stage = 1;
     public int maxcount = 0;
+    public int maxCarrot = 3;
+    public int carrotCount = 0;
+    public int maxBug = 3;
+    public int bugCount = 0;
 
     void Awake()
     {
@@ -62,6 +69,7 @@ public class gameManager : MonoBehaviour
 
 
     }
+
     public void GetPoint(int array)
     {
         current += dropSO[array].score;
@@ -72,6 +80,16 @@ public class gameManager : MonoBehaviour
         Debug.Log(current);
 
     }
+    
+    public void BugCount()
+    {
+        bugCount++;
+
+        if(bugCount == maxBug)
+        {
+            GameOver();
+        }
+    }
 
     public void GrowthCarrot() //물방울 모으면 단계 상승
     {
@@ -79,6 +97,11 @@ public class gameManager : MonoBehaviour
 
         if (stage == 3 && current >= maxcount)
         {
+            carrotCount++;
+            if(maxCarrot == carrotCount)
+            {
+                GameClear();
+            }
             stage = 0;
         }
         if (current >= maxcount)
@@ -88,6 +111,16 @@ public class gameManager : MonoBehaviour
         }
         
 
-    }  
+    } 
+    
+    public void GameOver()
+    {
+        gameOver.SetActive(true);
+    }
+
+    public void GameClear()
+    {
+        gameClear.SetActive(true);
+    }
 }
 
