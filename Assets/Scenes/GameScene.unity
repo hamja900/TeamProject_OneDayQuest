@@ -474,11 +474,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rain: {fileID: 4160517145761403932, guid: 2700b288abde44042a4fcd2785edf5af, type: 3}
-  raindrops: {fileID: 0}
   dropSO:
   - {fileID: 11400000, guid: 28871d0eb2404e54d85f26ce5a5d659b, type: 2}
   - {fileID: 11400000, guid: e3783ec1f924b054f86113dcb8baf0d3, type: 2}
   - {fileID: 11400000, guid: dfd1e9cef5f08a64db2bdd8a9a9771f1, type: 2}
+  carrotObj: {fileID: 365423349}
   rainSpawnPosition: {fileID: 614324911}
   StageText: {fileID: 1954648729}
   gameOver: {fileID: 585400548}
@@ -501,6 +501,7 @@ GameObject:
   - component: {fileID: 365423350}
   - component: {fileID: 365423352}
   - component: {fileID: 365423351}
+  - component: {fileID: 365423353}
   m_Layer: 5
   m_Name: Stage
   m_TagString: Untagged
@@ -568,6 +569,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 365423349}
   m_CullTransparentMesh: 1
+--- !u!114 &365423353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 365423349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bf963f9102b2e4478379f1a15ac8f7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carrotgrow: {fileID: 365423351}
+  carrot0: {fileID: 21300000, guid: 8147d197ace03e04ba6b036832bbf1ee, type: 3}
+  carrot1: {fileID: 21300000, guid: 7e32b670882b04a4d9ed786d1a292b91, type: 3}
+  carrot2: {fileID: 21300000, guid: a84bdae30cf5f4e4fb81ec4857f23568, type: 3}
 --- !u!1 &401525027
 GameObject:
   m_ObjectHideFlags: 0
