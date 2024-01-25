@@ -7,11 +7,10 @@ using UnityEngine;
 public class RainDrops : MonoBehaviour
 {
     [SerializeField] Rain baseRain;
-    public DropSO dropSO;
+    public DropSO[] dropSO;
     public Rain rainProperties { get; private set; }
     public List<Rain> rainModifiers = new List<Rain>();
     public GameObject prefab;
-    public gameManager gameManager;
 
     private void Awake()
     {
@@ -31,11 +30,29 @@ public class RainDrops : MonoBehaviour
         {
             prefab.SetActive(false);
         }
-        else if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player")
         {
-            gameManager.I.GrowthCarrot();
-            prefab.SetActive(false);
+            if (gameObject.tag == "NormalRain")
+            {
+                gameManager.I.GetPoint(0);
+                gameManager.I.GrowthCarrot();
+                prefab.SetActive(false);
+            }
+            else if ( gameObject.tag == "HighRain")
+            {
+                gameManager.I.GetPoint(1);
+                gameManager.I.GrowthCarrot();
+                prefab.SetActive(false);
+            }
+            else if (gameObject.tag == "Bug")
+            {
+                gameManager.I.GetPoint(2);
+                gameManager.I.GrowthCarrot();
+                prefab.SetActive(false);
+            }
         }
+        
+
     }
 
     private void UpdateRainProperty()

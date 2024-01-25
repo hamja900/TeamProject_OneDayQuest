@@ -13,9 +13,8 @@ public class gameManager : MonoBehaviour
 
     public GameObject rain;
     public RainDrops raindrops;
-    public DropSO dropSO;
-    public DropSO highDropSO;
-    public DropSO bugSO;
+    public DropSO[] dropSO;
+
     public GameObject rainSpawnPosition;
     public Text StageText; // 당근 성장단계 텍스트
 
@@ -47,28 +46,35 @@ public class gameManager : MonoBehaviour
     {
         float x = UnityEngine.Random.Range(-2.7f, 2.7f);
         transform.position = new Vector3(x, 4, 0);
-        DropManager.instance.DropFromSky(transform.position, dropSO);
+        DropManager.instance.DropFromSky(transform.position, dropSO[0]);
     }
     public void HighStartDrop()
     {
         float x = UnityEngine.Random.Range(-2.7f, 2.7f);
         transform.position = new Vector3(x, 4, 0);
-        DropManager.instance.DropFromSky(transform.position, highDropSO);
+        DropManager.instance.DropFromSky(transform.position, dropSO[1]);
     }
     public void BugStart()
     {
         float x = UnityEngine.Random.Range(-2.7f, 2.7f);
         transform.position = new Vector3(x, 4, 0);
-        DropManager.instance.DropFromSky(transform.position, bugSO);
+        DropManager.instance.DropFromSky(transform.position, dropSO[2]);
 
 
     }
+    public void GetPoint(int array)
+    {
+        current += dropSO[array].score;
+        if (current < 0)
+        {
+            current = 0;
+        }
+        Debug.Log(current);
 
+    }
 
     public void GrowthCarrot() //물방울 모으면 단계 상승
-    { 
-        current++;
-        
+    {
         maxcount = stage * 3;
 
         if (stage == 3 && current >= maxcount)
@@ -80,7 +86,7 @@ public class gameManager : MonoBehaviour
             stage++;
             current = 0;
         }
-
+        
 
     }  
 }
