@@ -12,6 +12,9 @@ public class RainDrops : MonoBehaviour
     public List<Rain> rainModifiers = new List<Rain>();
     public GameObject prefab;
 
+    private WaterGauge _waterGauge;
+
+
     private void Awake()
     {
         UpdateRainProperty();
@@ -28,6 +31,7 @@ public class RainDrops : MonoBehaviour
     {
         if (collision.gameObject.tag == "ground")
         {
+            
             prefab.SetActive(false);
         }
         if (collision.gameObject.tag == "Player")
@@ -50,6 +54,9 @@ public class RainDrops : MonoBehaviour
                 gameManager.I.GrowthCarrot();
                 prefab.SetActive(false);
             }
+            _waterGauge = collision.GetComponent<WaterGauge>();
+            _waterGauge.ChargeGauge();
+           
         }
         
 
