@@ -5,6 +5,7 @@ using System.Xml.Serialization;
 using Unity.VisualScripting;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class gameManager : MonoBehaviour
@@ -44,6 +45,18 @@ public class gameManager : MonoBehaviour
         InvokeRepeating("StartDrop", 0, 0.5f);
         InvokeRepeating("HighStartDrop", 2f, 0.8f);
         InvokeRepeating("BugStart", 1f, 1.5f);
+
+        GameReset();
+    }
+
+    void GameReset()
+    {
+        current = 0;
+        stage = 1;
+        maxcount = 0;
+        carrotCount = 0;
+        bugCount = 0;
+        Time.timeScale = 1f;
     }
 
     // Update is called once per frame
@@ -119,11 +132,25 @@ public class gameManager : MonoBehaviour
     public void GameOver()
     {
         gameOver.SetActive(true);
+        Time.timeScale = 0.0f;
     }
 
     public void GameClear()
     {
         gameClear.SetActive(true);
+        Time.timeScale = 0.0f;
     }
+
+    public void ReStart()
+    {
+        SceneManager.LoadScene("GameScene");
+    }
+
+    public void StartScene()
+    {
+        SceneManager.LoadScene("StartScene");
+    }
+
+
 }
 
