@@ -12,8 +12,10 @@ public class gameManager : MonoBehaviour
     public static gameManager I;
 
     public GameObject rain;
-    public RainDrops raindrops;
+    private RainDrops raindrops;
+    private CarrotCrowImages growImages;
     public DropSO[] dropSO;
+    public GameObject carrotObj;
 
     public GameObject rainSpawnPosition;
     public Text StageText; // 당근 성장단계 텍스트
@@ -33,6 +35,7 @@ public class gameManager : MonoBehaviour
     {
         I = this;
         raindrops = rain.GetComponent<RainDrops>();
+        growImages = carrotObj.GetComponent<CarrotCrowImages>();
     }
 
     // Start is called before the first frame update
@@ -47,6 +50,7 @@ public class gameManager : MonoBehaviour
     void Update()
     {
         StageText.text = stage.ToString();
+        growImages.CarrotImage();
     }
     
     public void StartDrop()
@@ -77,7 +81,6 @@ public class gameManager : MonoBehaviour
         {
             current = 0;
         }
-        Debug.Log(current);
 
     }
     
