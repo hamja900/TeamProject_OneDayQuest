@@ -481,9 +481,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: dfd1e9cef5f08a64db2bdd8a9a9771f1, type: 2}
   rainSpawnPosition: {fileID: 614324911}
   StageText: {fileID: 1954648729}
+  gameOver: {fileID: 585400548}
+  gameClear: {fileID: 539044056}
   current: 0
   stage: 1
   maxcount: 0
+  maxCarrot: 3
+  carrotCount: 0
+  maxBug: 3
+  bugCount: 0
 --- !u!1 &365423349
 GameObject:
   m_ObjectHideFlags: 0

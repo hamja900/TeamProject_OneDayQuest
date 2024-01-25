@@ -14,7 +14,7 @@ public class WaterGauge : MonoBehaviour
     {
         maxWater = gameManager.I.maxcount;
 
-        waterGaugeImage.rectTransform.localScale += new Vector3((current/maxWater),0,0);
+        waterGaugeImage.rectTransform.localScale = new Vector3(1*(current/maxWater),1,1);
 
         if(waterGaugeImage.rectTransform.localScale.x >= 1)
         {
