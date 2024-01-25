@@ -30,11 +30,10 @@ public class gameManager : MonoBehaviour
     }
 
     public void StartDrop()
-
     {
-        float x = Random.Range(-2.7f, 2.7f);
+        float x = UnityEngine.Random.Range(-2.7f, 2.7f);
         transform.position = new Vector3(x, 4, 0);
-        DropManager.instance.DropFromSky(rainSpawnPosition.transform.position, dropSO);
+        DropManager.instance.DropFromSky(transform.position, dropSO);
     }
 }
 
