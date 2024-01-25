@@ -10,8 +10,7 @@ public class RainDrops : MonoBehaviour
     public Rain rainProperties { get; private set; }
     public List<Rain> rainModifiers = new List<Rain>();
     public GameObject prefab;
-
-
+    public gameManager gameManager;
 
     private void Awake()
     {
@@ -28,11 +27,12 @@ public class RainDrops : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "ground")
-        {
+        {           
             prefab.SetActive(false);
         }
         else if (collision.gameObject.tag == "Player")
         {
+            gameManager.I.GrowthCarrot();
             prefab.SetActive(false);
         }
     }
