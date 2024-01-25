@@ -1,6 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
+using Unity.VisualScripting;
+using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class gameManager : MonoBehaviour
 {
@@ -12,11 +17,16 @@ public class gameManager : MonoBehaviour
     public DropSO highDropSO;
     public DropSO bugSO;
     public GameObject rainSpawnPosition;
+    public Text StageText; // 당근 성장단계 텍스트
 
+    private int current = 0;
+    private int stage = 1;
+    private int maxcount = 0;
 
     void Awake()
     {
         I = this;
+        raindrops = rain.GetComponent<RainDrops>();
     }
 
     // Start is called before the first frame update
@@ -50,6 +60,27 @@ public class gameManager : MonoBehaviour
         float x = UnityEngine.Random.Range(-2.7f, 2.7f);
         transform.position = new Vector3(x, 4, 0);
         DropManager.instance.DropFromSky(transform.position, bugSO);
+
+
     }
+
+
+    public void GrowthCarrot() //물방울 모으면 단계 상승
+    {
+        maxcount = stage * 3;
+        current++;
+        
+        if(stage > 3)
+        {
+            stage = 1;
+        }
+        if (current == maxcount)
+        {
+            StageText.text = stage.ToString();
+            stage++;
+            current = 0;
+        }
+
+    }  
 }
 

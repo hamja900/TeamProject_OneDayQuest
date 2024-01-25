@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class RainDrops : MonoBehaviour
@@ -10,8 +11,7 @@ public class RainDrops : MonoBehaviour
     public Rain rainProperties { get; private set; }
     public List<Rain> rainModifiers = new List<Rain>();
     public GameObject prefab;
-
-
+    public gameManager gameManager;
 
     private void Awake()
     {
@@ -33,6 +33,7 @@ public class RainDrops : MonoBehaviour
         }
         else if (collision.gameObject.tag == "Player")
         {
+            gameManager.I.GrowthCarrot();
             prefab.SetActive(false);
         }
     }
