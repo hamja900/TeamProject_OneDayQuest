@@ -6,7 +6,7 @@ using UnityEngine;
 public enum ScoreType
 {
     Normal,
-    Gold,
+    High,
     Bug,
 }
 
