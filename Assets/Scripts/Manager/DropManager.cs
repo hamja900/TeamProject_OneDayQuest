@@ -5,6 +5,7 @@ using UnityEngine;
 public class DropManager : MonoBehaviour
 {
     public static DropManager instance;
+    public Transform rainSpawnPoint;
 
     private ObjectPool ObjectPool;
     private void Awake()
@@ -19,13 +20,8 @@ public class DropManager : MonoBehaviour
     public void DropFromSky(Vector3 dropPosition, DropSO dropSO )
     {
         GameObject obj = ObjectPool.SpawnFromPool(dropSO.DropNameTag);
-       
-        
         float x = Random.Range(-2.7f, 2.7f);
-        float y = Random.Range(3f, 5f);
-       
-        dropPosition = new Vector3(x, y, 0);
-
+        dropPosition = new Vector3(x, 4, 0);
         obj.SetActive(true);
         
 
