@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class RainDrops : MonoBehaviour
@@ -27,7 +28,7 @@ public class RainDrops : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "ground")
-        {           
+        {
             prefab.SetActive(false);
         }
         else if (collision.gameObject.tag == "Player")

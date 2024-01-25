@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Serialization;
+using Unity.VisualScripting;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,8 +19,9 @@ public class gameManager : MonoBehaviour
     public GameObject rainSpawnPosition;
     public Text StageText; // 당근 성장단계 텍스트
 
-    int current = 0;
-
+    private int current = 0;
+    private int stage = 1;
+    private int maxcount = 0;
 
     void Awake()
     {
@@ -60,26 +63,24 @@ public class gameManager : MonoBehaviour
 
 
     }
+
+
     public void GrowthCarrot() //물방울 모으면 단계 상승
     {
+        maxcount = stage * 3;
         current++;
-        if (current == 3)
+        
+        if(stage > 3)
         {
-            string num = "1";
-            StageText.text = num;
+            stage = 1;
         }
-        else if (current == 6)
+        if (current == maxcount)
         {
-            string num = "2";
-            StageText.text = num;
+            StageText.text = stage.ToString();
+            stage++;
+            current = 0;
         }
-        else if (current == 9)
-        {
-            string num = "3";
-            StageText.text = num;
 
-        }
-       
     }  
 }
 
