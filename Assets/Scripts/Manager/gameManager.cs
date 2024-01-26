@@ -162,6 +162,7 @@ public class gameManager : MonoBehaviour
 
     public void StartScene()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("StartScene");
     }
 

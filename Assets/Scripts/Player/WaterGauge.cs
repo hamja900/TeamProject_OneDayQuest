@@ -13,8 +13,12 @@ public class WaterGauge : MonoBehaviour
     public void ChargeGauge(int current)
     {
         maxWater = gameManager.I.maxcount;
-
-        waterGaugeImage.rectTransform.localScale = new Vector3(1*(current/maxWater),1,1);
+        float water = 0;
+        if(current != 0)
+        {
+            water = current / maxWater;
+        }
+        waterGaugeImage.rectTransform.localScale = new Vector3(water,1,1);
 
         if(waterGaugeImage.rectTransform.localScale.x >= 1)
         {
