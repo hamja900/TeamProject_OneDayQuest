@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 64733040}
   - component: {fileID: 64733041}
   m_Layer: 0
-  m_Name: BackgroundAudio
+  m_Name: AudioManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -244,9 +244,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af7895339b50f484eb6bbc69aaab41ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 3502eef903d58944087ab4fe1d192e00, type: 3}
-  audioSource: {fileID: 0}
-  checkNum: 1
+  audioSource: {fileID: 64733041}
+  startBgmClip: {fileID: 8300000, guid: 3502eef903d58944087ab4fe1d192e00, type: 3}
+  gameBgmClip: {fileID: 8300000, guid: fab13c0f2cdbe4646999a67efd517537, type: 3}
+  carrotHarvest: {fileID: 8300000, guid: 29bde6326b4c34ad8a12da475f79b50a, type: 3}
+  gameOver: {fileID: 8300000, guid: a0ca8964c08d54c5dbebf245bdc474ca, type: 3}
+  gameClear: {fileID: 8300000, guid: 2667a0a008b044e218b63df62e2be749, type: 3}
+  fail: {fileID: 8300000, guid: 19f89c6e740e7447f9e12a8310d3e973, type: 3}
 --- !u!82 &64733041
 AudioSource:
   m_ObjectHideFlags: 0
@@ -257,7 +261,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3502eef903d58944087ab4fe1d192e00, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.3
   m_Pitch: 1

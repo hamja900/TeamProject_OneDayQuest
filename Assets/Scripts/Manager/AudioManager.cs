@@ -1,24 +1,29 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
-    public AudioClip clip;
-    public AudioSource audioSource;
-
-    public AudioClip carrotHarvest;
-
     public static AudioManager instance;
 
-    public int checkNum = 1;
+    [Header("бс AudioSource")]
+    public AudioSource audioSource;
+
+    [Header("бс AudioClip")]
+    public AudioClip startBgmClip;
+    public AudioClip gameBgmClip;
+    public AudioClip carrotHarvest;
+    public AudioClip gameOver;
+    public AudioClip gameClear;
+    public AudioClip fail;
 
     void Awake()
     {
         if(instance == null)
         {
             instance = this;
-           
         }
         else
         {
@@ -26,16 +31,21 @@ public class AudioManager : MonoBehaviour
             
         }
 
-        audioSource = gameObject.GetComponent<AudioSource>();
-        audioSource.clip = clip;
-        audioSource.loop = true;
-        GameCheck(1);
-        
+        DontDestroyOnLoad(gameObject);
     }
 
-    public void GameCheck(int checkNum)
+
+
+    private void Start()
     {
-        if (checkNum == 1)
+        audioSource.clip = startBgmClip;
+        audioSource.loop = true;
+        GameCheck(true);
+    }
+
+    public void GameCheck(bool isRunBgm)
+    {
+        if (isRunBgm)
         {
             audioSource.Play();
         }
@@ -43,11 +53,18 @@ public class AudioManager : MonoBehaviour
         {
             audioSource.Stop();
         }
+
+        audioSource.loop = true;
     }
 
-    public void CarrotHarvest()
+    public void SoundPlayOneShot(AudioClip audioClip)
     {
-        audioSource.PlayOneShot(carrotHarvest);
+        audioSource.PlayOneShot(audioClip);
+    }
+
+    public void AudioManagerDestroy()
+    {
+        Destroy(gameObject);
     }
 
 }
