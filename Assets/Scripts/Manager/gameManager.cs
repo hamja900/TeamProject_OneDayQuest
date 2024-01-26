@@ -29,9 +29,9 @@ public class gameManager : MonoBehaviour
     public GameObject gameOver;
     public GameObject gameClear;
 
-    public AudioSource endAudioSource;
-    public AudioClip clear;
-    public AudioClip over;
+    //public AudioSource endAudioSource;
+    //public AudioClip clear;
+    //public AudioClip over;
 
     public int current = 0;
     public int stage = 1;
@@ -57,7 +57,7 @@ public class gameManager : MonoBehaviour
         }
 
         difficultyType = 3;
-        
+        AudioManager.instance.audioSource.clip = AudioManager.instance.gameBgmClip;
         GameReset();
     }
 
@@ -78,6 +78,8 @@ public class gameManager : MonoBehaviour
         InvokeRepeating("StartDrop", 0, 0.5f);
         InvokeRepeating("HighStartDrop", 2f, 2f);
         InvokeRepeating("BugStart", 1f, 0.5f);
+
+        
     }
 
     void GameReset()
@@ -88,7 +90,7 @@ public class gameManager : MonoBehaviour
         carrotCount = 0;
         bugCount = 0;
         MaxCarrotTxt.text = maxCarrot.ToString();
-        AudioManager.instance.GameCheck(1);
+        AudioManager.instance.GameCheck(true);
     }
 
     // Update is called once per frame
@@ -151,7 +153,7 @@ public class gameManager : MonoBehaviour
             {
                 GameClear();
             }
-            AudioManager.instance.CarrotHarvest();
+            AudioManager.instance.SoundPlayOneShot(AudioManager.instance.carrotHarvest);
             stage = 0;
         }
         if (current >= maxcount)
@@ -165,16 +167,16 @@ public class gameManager : MonoBehaviour
     
     public void GameOver()
     {
-        AudioManager.instance.GameCheck(0);
-        endAudioSource.PlayOneShot(over);
+        AudioManager.instance.GameCheck(false);
+        AudioManager.instance.SoundPlayOneShot(AudioManager.instance.gameOver);
         gameOver.SetActive(true);
         Time.timeScale = 0.0f;
     }
 
     public void GameClear()
     {
-        AudioManager.instance.GameCheck(0);
-        endAudioSource.PlayOneShot(clear);
+        AudioManager.instance.GameCheck(false);
+        AudioManager.instance.SoundPlayOneShot(AudioManager.instance.gameClear);
         gameClear.SetActive(true);
         Time.timeScale = 0.0f;
     }
@@ -186,6 +188,7 @@ public class gameManager : MonoBehaviour
 
     public void StartScene()
     {
+        AudioManager.instance.AudioManagerDestroy();
         SceneManager.LoadScene("StartScene");
     }
 
