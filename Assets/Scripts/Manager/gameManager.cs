@@ -69,12 +69,14 @@ public class gameManager : MonoBehaviour
     }
     public void Normal()
     {
+        gameManager.I.MaxCarrotTxt.text = 5.ToString();
         InvokeRepeating("StartDrop", 0, 0.5f);
         InvokeRepeating("HighStartDrop", 2f, 1.2f);
         InvokeRepeating("BugStart", 1f, 0.8f);
     }
     public void Hard()
     {
+        gameManager.I.MaxCarrotTxt.text = 8.ToString();
         InvokeRepeating("StartDrop", 0, 0.5f);
         InvokeRepeating("HighStartDrop", 2f, 2f);
         InvokeRepeating("BugStart", 1f, 0.5f);
@@ -98,6 +100,7 @@ public class gameManager : MonoBehaviour
     {
         StageText.text = stage.ToString();
         growImages.CarrotImage();
+
     }
     
     public void StartDrop()
@@ -147,23 +150,24 @@ public class gameManager : MonoBehaviour
 
         if (stage == 3 && current >= maxcount)
         {
+            stage = 0;
             carrotCount++;
             CurrentTxt.text = carrotCount.ToString();
-            if(maxCarrot == carrotCount)
+            if (maxCarrot == carrotCount)
             {
                 GameClear();
             }
+
             AudioManager.instance.SoundPlayOneShot(AudioManager.instance.carrotHarvest);
-            stage = 0;
+            
         }
         if (current >= maxcount)
         {
             stage++;
             current = 0;
         }
-        
-
     } 
+
     
     public void GameOver()
     {
