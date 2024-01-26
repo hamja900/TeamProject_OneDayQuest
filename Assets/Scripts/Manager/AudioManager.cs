@@ -9,6 +9,7 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager instance;
 
+    public int checkNum = 1;
 
     void Awake()
     {
@@ -23,6 +24,7 @@ public class AudioManager : MonoBehaviour
             
         }
     }
+
 
 
 
