@@ -127,6 +127,7 @@ public class gameManager : MonoBehaviour
             {
                 GameClear();
             }
+            AudioManager.instance.CarrotHarvest();
             stage = 0;
         }
         if (current >= maxcount)

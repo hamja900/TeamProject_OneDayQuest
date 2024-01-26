@@ -56,7 +56,7 @@ public class RainDrops : MonoBehaviour
                 //gameManager.I.GrowthCarrot();
                 gameManager.I.BugCount();
                 prefab.SetActive(false);
-                SoundManager.I.audioSource.PlayOneShot(fail);
+                AudioManager.instance.audioSource.PlayOneShot(fail);
             }
             
             _waterGauge.ChargeGauge(gameManager.I.current);

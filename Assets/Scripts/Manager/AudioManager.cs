@@ -7,6 +7,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip clip;
     public AudioSource audioSource;
 
+    public AudioClip carrotHarvest;
+
     public static AudioManager instance;
 
     public int checkNum = 1;
@@ -41,6 +43,11 @@ public class AudioManager : MonoBehaviour
         {
             audioSource.Stop();
         }
+    }
+
+    public void CarrotHarvest()
+    {
+        audioSource.PlayOneShot(carrotHarvest);
     }
 
 }
