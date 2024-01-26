@@ -163,7 +163,11 @@ public class gameManager : MonoBehaviour
 
     public void StartScene()
     {
+
         AudioManager.instance.AudioManagerDestroy();
+
+        Time.timeScale = 1f;
+
         SceneManager.LoadScene("StartScene");
     }
 

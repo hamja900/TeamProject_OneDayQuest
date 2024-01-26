@@ -13,27 +13,34 @@ public class Loding : MonoBehaviour
 
     private float time;
 
-     void Start()
+    public void LoadSceneOnClick()
     {
-        StartCoroutine(LodeScene());
+
+        gameObject.SetActive(true); // Load UI 활성화
+        StartCoroutine(LoadScene());
+           
+       
     }
 
-    IEnumerator LodeScene()
+    IEnumerator LoadScene()
     {
+        Debug.Log("호출");
         AsyncOperation operation = SceneManager.LoadSceneAsync(SceneName);
-        operation.allowSceneActivation = false; 
+        operation.allowSceneActivation = false; // 로딩이 완료 되기 전까지는 활성화 되면 안됨
 
         while(!operation.isDone) // 로딩 완료 여부
         {
             time += Time.deltaTime;
-            slider.value = time / 10f;
-            if(time > 10)
+            slider.value = time / 2f;
+            if(time > 2)
             {
                 operation.allowSceneActivation = true; // 로딩이 완료되면 활성화
             }
 
             yield return null;
         }
+
+
     }
 }
 
