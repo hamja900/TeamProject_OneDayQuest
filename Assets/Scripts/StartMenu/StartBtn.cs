@@ -7,12 +7,12 @@ using UnityEngine.SceneManagement;
 public class StartBtn : MonoBehaviour
 {
     public AudioClip click;
-
+    public GameObject load;
     public void OnClickSence()
     {
         AudioManager.instance.audioSource.PlayOneShot(click);
         Thread.Sleep(300);
-        SceneManager.LoadScene("GameScene");
+        load.SetActive(true);
     }
 
 }
