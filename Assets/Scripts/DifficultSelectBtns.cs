@@ -9,7 +9,7 @@ public class DifficultSelectBtns : MonoBehaviour
 
     public void EasyBtn()
     {
-        //gameManager.I.maxCarrot = 3;
+        gameManager.I.maxCarrot = 3;
         gameManager.I.difficultyType = 0;
         difficultyPopUp.SetActive(false);
         gameManager.I.Easy();
@@ -17,7 +17,7 @@ public class DifficultSelectBtns : MonoBehaviour
     }
     public void NormalBtn()
     {
-        //gameManager.I.maxCarrot = 5;
+        gameManager.I.maxCarrot = 5;
         gameManager.I.difficultyType = 1;
         difficultyPopUp.SetActive(false);
         gameManager.I.Normal();
@@ -25,7 +25,7 @@ public class DifficultSelectBtns : MonoBehaviour
     }
     public void HardBtn()
     {
-        //gameManager.I.maxCarrot = 8;
+        gameManager.I.maxCarrot = 8;
         gameManager.I.difficultyType = 2;
         difficultyPopUp.SetActive(false);
         gameManager.I.Hard();

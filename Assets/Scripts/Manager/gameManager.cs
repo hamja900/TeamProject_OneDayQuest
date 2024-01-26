@@ -36,7 +36,7 @@ public class gameManager : MonoBehaviour
     public int current = 0;
     public int stage = 1;
     public int maxcount = 0;
-    public int maxCarrot = 3;
+    public int maxCarrot;
     public int carrotCount = 0;
     public int maxBug = 3;
     public int bugCount = 0;
