@@ -368,7 +368,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 190278331}
-  - component: {fileID: 190278330}
   - component: {fileID: 190278329}
   m_Layer: 0
   m_Name: BackgroundAudio
@@ -473,19 +472,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &190278330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 190278328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af7895339b50f484eb6bbc69aaab41ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: fab13c0f2cdbe4646999a67efd517537, type: 3}
 --- !u!4 &190278331
 Transform:
   m_ObjectHideFlags: 0
@@ -616,6 +602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8875b807ec95dd4ba1abee7cefd9b0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlaying: 0
   rain: {fileID: 4160517145761403932, guid: 2700b288abde44042a4fcd2785edf5af, type: 3}
   dropSO:
   - {fileID: 11400000, guid: 28871d0eb2404e54d85f26ce5a5d659b, type: 2}
@@ -2853,7 +2840,7 @@ GameObject:
   - component: {fileID: 1576138635}
   - component: {fileID: 1576138634}
   m_Layer: 0
-  m_Name: SoundManager
+  m_Name: AudioManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2979,10 +2966,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1576138632}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b738e52a65d59b04da61c4009f411b41, type: 3}
+  m_Script: {fileID: 11500000, guid: af7895339b50f484eb6bbc69aaab41ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fail: {fileID: 0}
+  startBGM: {fileID: 0}
   audioSource: {fileID: 1576138634}
 --- !u!1 &1577195296
 GameObject:

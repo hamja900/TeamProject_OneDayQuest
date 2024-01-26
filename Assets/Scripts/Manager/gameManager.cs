@@ -11,6 +11,7 @@ using UnityEngine.UI;
 public class gameManager : MonoBehaviour
 {
     public static gameManager I;
+    public bool isPlaying;
 
     public GameObject rain;
     private RainDrops raindrops;
@@ -49,6 +50,7 @@ public class gameManager : MonoBehaviour
         InvokeRepeating("BugStart", 1f, 1.5f);
 
         GameReset();
+        
     }
 
     void GameReset()
@@ -60,6 +62,7 @@ public class gameManager : MonoBehaviour
         bugCount = 0;
         Time.timeScale = 1f;
         MaxCarrotTxt.text = maxCarrot.ToString();
+        isPlaying = true;
     }
 
     // Update is called once per frame
@@ -137,12 +140,14 @@ public class gameManager : MonoBehaviour
     {
         gameOver.SetActive(true);
         Time.timeScale = 0.0f;
+        isPlaying = false;
     }
 
     public void GameClear()
     {
         gameClear.SetActive(true);
         Time.timeScale = 0.0f;
+        isPlaying = false;
     }
 
     public void ReStart()

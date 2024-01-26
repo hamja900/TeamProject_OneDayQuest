@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public AudioClip clip;
-    private AudioSource backfroundMusincSource;
+    public AudioClip startBGM;
+    public AudioSource audioSource;
 
-    private static AudioManager instance;
+    public static AudioManager instance;
 
 
     void Awake()
@@ -22,12 +22,9 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
             
         }
-
-        backfroundMusincSource = gameObject.GetComponent<AudioSource>();
-        backfroundMusincSource.clip = clip;
-        backfroundMusincSource.loop = true;
-        backfroundMusincSource.Play();
     }
+
+
 
 
 }
