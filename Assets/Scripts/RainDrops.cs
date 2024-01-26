@@ -11,6 +11,7 @@ public class RainDrops : MonoBehaviour
     public Rain rainProperties { get; private set; }
     public List<Rain> rainModifiers = new List<Rain>();
     public GameObject prefab;
+    public AudioClip fail;
 
     private WaterGauge _waterGauge;
 
@@ -55,6 +56,7 @@ public class RainDrops : MonoBehaviour
                 //gameManager.I.GrowthCarrot();
                 gameManager.I.BugCount();
                 prefab.SetActive(false);
+                SoundManager.I.audioSource.PlayOneShot(fail);
             }
             
             _waterGauge.ChargeGauge(gameManager.I.current);

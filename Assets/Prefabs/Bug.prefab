@@ -198,6 +198,11 @@ MonoBehaviour:
     score: -2
     speed: 2
     dropSO: {fileID: 11400000, guid: dfd1e9cef5f08a64db2bdd8a9a9771f1, type: 2}
-  dropSO: {fileID: 11400000, guid: dfd1e9cef5f08a64db2bdd8a9a9771f1, type: 2}
+  dropSO:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   rainModifiers: []
   prefab: {fileID: 4160517145761403932}
+  fail: {fileID: 8300000, guid: 19f89c6e740e7447f9e12a8310d3e973, type: 3}
+  audioSource: {fileID: 0}
