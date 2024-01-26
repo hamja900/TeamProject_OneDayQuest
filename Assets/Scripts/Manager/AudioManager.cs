@@ -5,7 +5,7 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public AudioClip clip;
-    private AudioSource backfroundMusincSource;
+    public AudioSource audioSource;
 
     public static AudioManager instance;
 
@@ -24,9 +24,9 @@ public class AudioManager : MonoBehaviour
             
         }
 
-        backfroundMusincSource = gameObject.GetComponent<AudioSource>();
-        backfroundMusincSource.clip = clip;
-        backfroundMusincSource.loop = true;
+        audioSource = gameObject.GetComponent<AudioSource>();
+        audioSource.clip = clip;
+        audioSource.loop = true;
         GameCheck(1);
         
     }
@@ -35,11 +35,11 @@ public class AudioManager : MonoBehaviour
     {
         if (checkNum == 1)
         {
-            backfroundMusincSource.Play();
+            audioSource.Play();
         }
         else
         {
-            backfroundMusincSource.Stop();
+            audioSource.Stop();
         }
     }
 
