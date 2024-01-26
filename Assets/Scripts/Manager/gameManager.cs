@@ -16,8 +16,11 @@ public class gameManager : MonoBehaviour
     private RainDrops raindrops;
     private CarrotCrowImages growImages;
     public DropSO[] dropSO;
-    public GameObject carrotObj;
 
+    public int difficultyType;
+    public GameObject difficultyPopUp;
+
+    public GameObject carrotObj;
     public GameObject rainSpawnPosition;
     public Text StageText; // 당근 성장단계 텍스트
     public Text MaxCarrotTxt;
@@ -48,11 +51,33 @@ public class gameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(difficultyPopUp)
+        {
+            Time.timeScale = 0;
+        }
+
+        difficultyType = 3;
+        
+        GameReset();
+    }
+
+    public void Easy()
+    {
         InvokeRepeating("StartDrop", 0, 0.5f);
         InvokeRepeating("HighStartDrop", 2f, 0.8f);
         InvokeRepeating("BugStart", 1f, 1.5f);
-
-        GameReset();
+    }
+    public void Normal()
+    {
+        InvokeRepeating("StartDrop", 0, 0.5f);
+        InvokeRepeating("HighStartDrop", 2f, 1.2f);
+        InvokeRepeating("BugStart", 1f, 0.8f);
+    }
+    public void Hard()
+    {
+        InvokeRepeating("StartDrop", 0, 0.5f);
+        InvokeRepeating("HighStartDrop", 2f, 2f);
+        InvokeRepeating("BugStart", 1f, 0.5f);
     }
 
     void GameReset()
@@ -62,7 +87,6 @@ public class gameManager : MonoBehaviour
         maxcount = 0;
         carrotCount = 0;
         bugCount = 0;
-        Time.timeScale = 1f;
         MaxCarrotTxt.text = maxCarrot.ToString();
         AudioManager.instance.GameCheck(1);
     }
