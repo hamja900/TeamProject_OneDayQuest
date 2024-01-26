@@ -5,8 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class StartBtn : MonoBehaviour
 {
-   public void OnClickSence()
+
+    public void OnClickSence()
     {
         SceneManager.LoadScene("GameScene");
     }
+
 }

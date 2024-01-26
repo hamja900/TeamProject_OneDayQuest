@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public AudioClip clip;
+    private AudioSource backfroundMusincSource;
+
+    private static AudioManager instance;
+
+
+    void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        if(instance == null)
+        {
+            instance = this;
+           
+        }
+        else
+        {
+            Destroy(gameObject);
+            
+        }
+
+        backfroundMusincSource = gameObject.GetComponent<AudioSource>();
+        backfroundMusincSource.clip = clip;
+        backfroundMusincSource.loop = true;
+        backfroundMusincSource.Play();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }
