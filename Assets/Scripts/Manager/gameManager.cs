@@ -29,6 +29,9 @@ public class gameManager : MonoBehaviour
     public GameObject gameOver;
     public GameObject gameClear;
 
+    public GameObject plusOne;
+    private AddCarrot addCarrot;
+
     //public AudioSource endAudioSource;
     //public AudioClip clear;
     //public AudioClip over;
@@ -41,11 +44,13 @@ public class gameManager : MonoBehaviour
     public int maxBug = 3;
     public int bugCount = 0;
 
+
     void Awake()
     {
         I = this;
         raindrops = rain.GetComponent<RainDrops>();
         growImages = carrotObj.GetComponent<CarrotCrowImages>();
+        addCarrot = plusOne.GetComponent<AddCarrot>();
     }
 
     // Start is called before the first frame update
@@ -159,6 +164,8 @@ public class gameManager : MonoBehaviour
             }
 
             AudioManager.instance.SoundPlayOneShot(AudioManager.instance.carrotHarvest);
+            plusOne.SetActive(true);
+            addCarrot.addCarrotAnim();
             
         }
         if (current >= maxcount)

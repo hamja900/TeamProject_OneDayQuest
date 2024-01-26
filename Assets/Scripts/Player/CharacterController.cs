@@ -16,7 +16,7 @@ public class CharacterController : MonoBehaviour
         SpriteFlip(dir);
         OnMoveEvent?.Invoke(dir);
     }
-
+    
     private void AnimatorSetBool(Vector2 dir)
     {
         if (dir != Vector2.zero)
