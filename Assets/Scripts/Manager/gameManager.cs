@@ -26,6 +26,10 @@ public class gameManager : MonoBehaviour
     public GameObject gameOver;
     public GameObject gameClear;
 
+    public AudioSource endAudioSource;
+    public AudioClip clear;
+    public AudioClip over;
+
     public int current = 0;
     public int stage = 1;
     public int maxcount = 0;
@@ -60,6 +64,7 @@ public class gameManager : MonoBehaviour
         bugCount = 0;
         Time.timeScale = 1f;
         MaxCarrotTxt.text = maxCarrot.ToString();
+        AudioManager.instance.GameCheck(1);
     }
 
     // Update is called once per frame
@@ -135,12 +140,16 @@ public class gameManager : MonoBehaviour
     
     public void GameOver()
     {
+        AudioManager.instance.GameCheck(0);
+        endAudioSource.PlayOneShot(over);
         gameOver.SetActive(true);
         Time.timeScale = 0.0f;
     }
 
     public void GameClear()
     {
+        AudioManager.instance.GameCheck(0);
+        endAudioSource.PlayOneShot(clear);
         gameClear.SetActive(true);
         Time.timeScale = 0.0f;
     }
