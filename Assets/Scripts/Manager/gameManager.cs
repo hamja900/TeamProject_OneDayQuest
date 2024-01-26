@@ -16,8 +16,11 @@ public class gameManager : MonoBehaviour
     private RainDrops raindrops;
     private CarrotCrowImages growImages;
     public DropSO[] dropSO;
-    public GameObject carrotObj;
 
+    public int difficultyType;
+    public GameObject difficultyPopUp;
+
+    public GameObject carrotObj;
     public GameObject rainSpawnPosition;
     public Text StageText; // 당근 성장단계 텍스트
     public Text MaxCarrotTxt;
@@ -33,7 +36,7 @@ public class gameManager : MonoBehaviour
     public int current = 0;
     public int stage = 1;
     public int maxcount = 0;
-    public int maxCarrot = 3;
+    public int maxCarrot;
     public int carrotCount = 0;
     public int maxBug = 3;
     public int bugCount = 0;
@@ -48,12 +51,37 @@ public class gameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(difficultyPopUp)
+        {
+            Time.timeScale = 0;
+        }
+
+        difficultyType = 3;
+        AudioManager.instance.audioSource.clip = AudioManager.instance.gameBgmClip;
+        GameReset();
+    }
+
+    public void Easy()
+    {
         InvokeRepeating("StartDrop", 0, 0.5f);
         InvokeRepeating("HighStartDrop", 2f, 0.8f);
         InvokeRepeating("BugStart", 1f, 1.5f);
+    }
+    public void Normal()
+    {
+        gameManager.I.MaxCarrotTxt.text = 5.ToString();
+        InvokeRepeating("StartDrop", 0, 0.5f);
+        InvokeRepeating("HighStartDrop", 2f, 1.2f);
+        InvokeRepeating("BugStart", 1f, 0.8f);
+    }
+    public void Hard()
+    {
+        gameManager.I.MaxCarrotTxt.text = 8.ToString();
+        InvokeRepeating("StartDrop", 0, 0.5f);
+        InvokeRepeating("HighStartDrop", 2f, 2f);
+        InvokeRepeating("BugStart", 1f, 0.5f);
 
-        AudioManager.instance.audioSource.clip = AudioManager.instance.gameBgmClip;
-        GameReset();
+        
     }
 
     void GameReset()
@@ -63,7 +91,6 @@ public class gameManager : MonoBehaviour
         maxcount = 0;
         carrotCount = 0;
         bugCount = 0;
-        Time.timeScale = 1f;
         MaxCarrotTxt.text = maxCarrot.ToString();
         AudioManager.instance.GameCheck(true);
     }
@@ -73,6 +100,7 @@ public class gameManager : MonoBehaviour
     {
         StageText.text = stage.ToString();
         growImages.CarrotImage();
+
     }
     
     public void StartDrop()
@@ -122,23 +150,24 @@ public class gameManager : MonoBehaviour
 
         if (stage == 3 && current >= maxcount)
         {
+            stage = 0;
             carrotCount++;
             CurrentTxt.text = carrotCount.ToString();
-            if(maxCarrot == carrotCount)
+            if (maxCarrot == carrotCount)
             {
                 GameClear();
             }
+
             AudioManager.instance.SoundPlayOneShot(AudioManager.instance.carrotHarvest);
-            stage = 0;
+            
         }
         if (current >= maxcount)
         {
             stage++;
             current = 0;
         }
-        
-
     } 
+
     
     public void GameOver()
     {
