@@ -19,7 +19,9 @@ public class DifficultSelectBtns : MonoBehaviour
         difficultyPopUp.SetActive(false);
         panel.SetActive(true);
         gameManager.I.Easy();
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
+        
+        
     }
     public void NormalBtn()
     {
@@ -29,7 +31,7 @@ public class DifficultSelectBtns : MonoBehaviour
         difficultyPopUp.SetActive(false);
         panel.SetActive(true);
         gameManager.I.Normal();
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
     }
     public void HardBtn()
     {
@@ -39,11 +41,12 @@ public class DifficultSelectBtns : MonoBehaviour
         difficultyPopUp.SetActive(false);
         panel.SetActive(true);
         gameManager.I.Hard();
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
     }
 
     public void OnClickContinue()
     {
         panel.SetActive(false);
+        Time.timeScale = 1;
     }
 }
