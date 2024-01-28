@@ -24,7 +24,6 @@ public class Loding : MonoBehaviour
 
     IEnumerator LoadScene()
     {
-        Debug.Log("호출");
         AsyncOperation operation = SceneManager.LoadSceneAsync(SceneName);
         operation.allowSceneActivation = false; // 로딩이 완료 되기 전까지는 활성화 되면 안됨
 

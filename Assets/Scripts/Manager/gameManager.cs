@@ -20,11 +20,14 @@ public class gameManager : MonoBehaviour
     public int difficultyType;
     public GameObject difficultyPopUp;
 
+    public GameObject panel;
+    
     public GameObject carrotObj;
     public GameObject rainSpawnPosition;
     public Text StageText; // 당근 성장단계 텍스트
     public Text MaxCarrotTxt;
     public Text CurrentTxt;
+    
 
     public GameObject gameOver;
     public GameObject gameClear;
@@ -41,6 +44,7 @@ public class gameManager : MonoBehaviour
     public int maxBug = 3;
     public int bugCount = 0;
 
+
     void Awake()
     {
         I = this;
@@ -51,7 +55,7 @@ public class gameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(difficultyPopUp)
+        if (difficultyPopUp && panel)
         {
             Time.timeScale = 0;
         }
@@ -59,6 +63,7 @@ public class gameManager : MonoBehaviour
         difficultyType = 3;
         AudioManager.instance.audioSource.clip = AudioManager.instance.gameBgmClip;
         GameReset();
+
     }
 
     public void Easy()
