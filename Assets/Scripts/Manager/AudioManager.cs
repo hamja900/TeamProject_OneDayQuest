@@ -14,13 +14,6 @@ public class AudioManager : MonoBehaviour
     public AudioSource audioSource;
 
     [Header("бс AudioClip")]
-    //public AudioClip startBgmClip;
-    //public AudioClip gameBgmClip;
-    //public AudioClip carrotHarvest;
-    //public AudioClip gameOver;
-    //public AudioClip gameClear;
-    //public AudioClip fail;
-
     public AudioDic audioClipDic;
 
     void Awake()
