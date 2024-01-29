@@ -211,8 +211,6 @@ public class gameManager : MonoBehaviour
         SceneManager.LoadScene("StartScene");
     }
 
-   
-
 
 }
 
