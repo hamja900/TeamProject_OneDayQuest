@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[System.Serializable]
+public class AudioDic : SerializableDictionary<string, AudioClip> { }
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
@@ -12,12 +14,7 @@ public class AudioManager : MonoBehaviour
     public AudioSource audioSource;
 
     [Header("бс AudioClip")]
-    public AudioClip startBgmClip;
-    public AudioClip gameBgmClip;
-    public AudioClip carrotHarvest;
-    public AudioClip gameOver;
-    public AudioClip gameClear;
-    public AudioClip fail;
+    public AudioDic audioClipDic;
 
     void Awake()
     {
@@ -38,7 +35,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        audioSource.clip = startBgmClip;
+        audioSource.clip = audioClipDic["StartBgm"];
         audioSource.loop = true;
         GameCheck(true);
     }
@@ -57,9 +54,9 @@ public class AudioManager : MonoBehaviour
         audioSource.loop = true;
     }
 
-    public void SoundPlayOneShot(AudioClip audioClip)
+    public void SoundPlayOneShot(string clipName)
     {
-        audioSource.PlayOneShot(audioClip);
+        audioSource.PlayOneShot(audioClipDic[clipName]);
     }
 
     public void AudioManagerDestroy()
