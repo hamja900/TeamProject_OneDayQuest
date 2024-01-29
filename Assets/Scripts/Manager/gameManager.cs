@@ -47,9 +47,10 @@ public class gameManager : MonoBehaviour
     [HideInInspector] public int difficultyType;
     #endregion
 
-    public int point;
-    public int speedItem;
-    public int bugItem;
+    public int totalScore;
+    public int point = 0;
+    public int speedItem = 0;
+    public int bugItem = 0;
 
     void Awake()
     {
@@ -149,6 +150,7 @@ public class gameManager : MonoBehaviour
 
         if(bugCount == maxBug)
         {
+            totalScore += point;
             GameOver();
         }
     }
@@ -164,6 +166,7 @@ public class gameManager : MonoBehaviour
             CurrentTxt.text = carrotCount.ToString();
             if (maxCarrot == carrotCount)
             {
+                totalScore += point;
                 GameClear();
             }
 
@@ -215,13 +218,13 @@ public class gameManager : MonoBehaviour
 
     void LoadData()
     {
-        PlayerPrefs.GetInt("Point", point);
+        PlayerPrefs.GetInt("Point", totalScore);
         PlayerPrefs.GetInt("ExtraSpeed",speedItem);
         PlayerPrefs.GetInt("ExtraBugCount", bugItem);
     }
     void SaveData()
     {
-        PlayerPrefs.SetInt("Point",point);
+        PlayerPrefs.SetInt("Point",totalScore);
         PlayerPrefs.SetInt("ExtraSpeed",speedItem);
         PlayerPrefs.SetInt("ExtraBugCount", bugItem);
     }

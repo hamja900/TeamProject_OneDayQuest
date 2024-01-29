@@ -21,20 +21,22 @@ public class Shop : MonoBehaviour
 
     void Load()
     {
-        PlayerPrefs.GetInt("Point", gameManager.I.point);
+        if (gameManager.I.point == 0)
+            return;
+        PlayerPrefs.GetInt("Point", gameManager.I.totalScore);
         PlayerPrefs.GetInt("ExtraSpeed", gameManager.I.speedItem);
         PlayerPrefs.GetInt("ExtraBugCount", gameManager.I.bugItem);
     }
     void Save()
     {
-        PlayerPrefs.SetInt("Point", gameManager.I.point);
-        PlayerPrefs.SetInt("ExtraSpeed", gameManager.I.speedItem);
-        PlayerPrefs.SetInt("ExtraBugCount", gameManager.I.bugItem);
+            PlayerPrefs.SetInt("Point", gameManager.I.totalScore);
+            PlayerPrefs.SetInt("ExtraSpeed", gameManager.I.speedItem);
+            PlayerPrefs.SetInt("ExtraBugCount", gameManager.I.bugItem);  
     }
 
     void ShowCurrentPoint()
     {
-        currentPointTxt.text = gameManager.I.point.ToString();
+        currentPointTxt.text = gameManager.I.totalScore.ToString();
     }
 
 
