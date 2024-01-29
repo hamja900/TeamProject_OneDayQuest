@@ -14,6 +14,7 @@ public class AddCarrot : MonoBehaviour
     }
     public void addCarrotAnim()
     { 
+        _plusOne.SetActive(true);
         _animator.SetTrigger("addCarrot");
     }
 }

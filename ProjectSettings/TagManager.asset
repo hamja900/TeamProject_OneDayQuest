@@ -8,6 +8,7 @@ TagManager:
   - NormalRain
   - HighRain
   - Bug
+  - plusOne
   layers:
   - Default
   - TransparentFX

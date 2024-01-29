@@ -31,6 +31,7 @@ public class gameManager : MonoBehaviour
 
     public GameObject plusOne;
     private AddCarrot addCarrot;
+    public GameObject plusOnePoint;
 
     //public AudioSource endAudioSource;
     //public AudioClip clear;
@@ -164,8 +165,9 @@ public class gameManager : MonoBehaviour
             }
 
             AudioManager.instance.SoundPlayOneShot(AudioManager.instance.carrotHarvest);
-            plusOne.SetActive(true);
-            addCarrot.addCarrotAnim();
+            
+            
+            
             
         }
         if (current >= maxcount)
@@ -205,6 +207,12 @@ public class gameManager : MonoBehaviour
         Time.timeScale = 1f;
 
         SceneManager.LoadScene("StartScene");
+    }
+
+    public void PlusOneEffect()
+    {
+        transform.position = plusOnePoint.transform.position;
+        addCarrot.addCarrotAnim();
     }
 
 
