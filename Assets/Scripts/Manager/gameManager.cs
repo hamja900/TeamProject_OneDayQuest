@@ -12,41 +12,40 @@ public class gameManager : MonoBehaviour
 {
     public static gameManager I;
 
-    public GameObject rain;
-    private RainDrops raindrops;
-    private CarrotCrowImages growImages;
+    [Header("■ SO")]
     public DropSO[] dropSO;
 
-    public int difficultyType;
-    public GameObject difficultyPopUp;
 
-    public GameObject panel;
-    
-    public GameObject carrotObj;
-    public GameObject rainSpawnPosition;
+    [Header("■ Text")]
     public Text StageText; // 당근 성장단계 텍스트
     public Text MaxCarrotTxt;
     public Text CurrentTxt;
-    
 
+    [Header("■ GameObject")]
+    public GameObject rain;
+    public GameObject difficultyPopUp;
+    public GameObject panel;
+    public GameObject carrotObj;
+    public GameObject rainSpawnPosition;
     public GameObject gameOver;
     public GameObject gameClear;
-
     public GameObject plusOne;
-    private AddCarrot addCarrot;
     public GameObject plusOnePoint;
 
-    //public AudioSource endAudioSource;
-    //public AudioClip clear;
-    //public AudioClip over;
+    private CarrotCrowImages growImages;
+    private AddCarrot addCarrot;
+    private RainDrops raindrops;
 
-    public int current = 0;
-    public int stage = 1;
-    public int maxcount = 0;
-    public int maxCarrot;
-    public int carrotCount = 0;
-    public int maxBug = 3;
-    public int bugCount = 0;
+    #region 옵션
+    [HideInInspector] public int current = 0;
+    [HideInInspector] public int stage = 1;
+    [HideInInspector] public int maxcount = 0;
+    [HideInInspector] public int maxCarrot;
+    [HideInInspector] public int carrotCount = 0;
+    [HideInInspector] public int maxBug = 3;
+    [HideInInspector] public int bugCount = 0;
+    [HideInInspector] public int difficultyType;
+    #endregion
 
 
     void Awake()
