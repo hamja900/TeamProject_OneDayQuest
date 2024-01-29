@@ -100,6 +100,7 @@ public class gameManager : MonoBehaviour
 
     void GameReset()
     {
+        point = 0;
         current = 0;
         stage = 1;
         maxcount = 0;
@@ -150,7 +151,7 @@ public class gameManager : MonoBehaviour
 
         if(bugCount == maxBug)
         {
-            totalScore += point;
+            
             GameOver();
         }
     }
@@ -166,7 +167,6 @@ public class gameManager : MonoBehaviour
             CurrentTxt.text = carrotCount.ToString();
             if (maxCarrot == carrotCount)
             {
-                totalScore += point;
                 GameClear();
             }
 
@@ -188,28 +188,34 @@ public class gameManager : MonoBehaviour
     {
         AudioManager.instance.GameCheck(false);
         AudioManager.instance.SoundPlayOneShot("GameOver");
+
         gameOver.SetActive(true);
         Time.timeScale = 0.0f;
-        SaveData();
+        
     }
 
     public void GameClear()
     {
         AudioManager.instance.GameCheck(false);
         AudioManager.instance.SoundPlayOneShot("GameClear");
+        
         gameClear.SetActive(true);
         Time.timeScale = 0.0f;
-        SaveData();
+
     }
 
     public void ReStart()
     {
+        totalScore += point;
+        SaveData();
         SceneManager.LoadScene("GameScene");
     }
 
     public void StartScene()
     {
         AudioManager.instance.AudioManagerDestroy();
+        totalScore += point;
+        SaveData();
 
         Time.timeScale = 1f;
 
@@ -218,15 +224,15 @@ public class gameManager : MonoBehaviour
 
     void LoadData()
     {
-        PlayerPrefs.GetInt("Point", totalScore);
-        PlayerPrefs.GetInt("ExtraSpeed",speedItem);
-        PlayerPrefs.GetInt("ExtraBugCount", bugItem);
+        PlayerPrefs.GetInt("Point", point);
+        bool BugItem = System.Convert.ToBoolean(PlayerPrefs.GetInt("ExtraSpeed"));
+        bool SpeedItem = System.Convert.ToBoolean(PlayerPrefs.GetInt("ExtraBugCount"));
     }
     void SaveData()
     {
-        PlayerPrefs.SetInt("Point",totalScore);
-        PlayerPrefs.SetInt("ExtraSpeed",speedItem);
-        PlayerPrefs.SetInt("ExtraBugCount", bugItem);
+        PlayerPrefs.SetInt("Point",point);
+        PlayerPrefs.SetInt("ExtraSpeed", System.Convert.ToInt16(speedItem));
+        PlayerPrefs.SetInt("ExtraBugCount", System.Convert.ToInt16(bugItem));
     }
 
 
