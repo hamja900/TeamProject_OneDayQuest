@@ -15,7 +15,7 @@ public class Loding : MonoBehaviour
 
     public void LoadSceneOnClick()
     {
-
+        AudioManager.instance.SoundPlayOneShot("ButtonClick");
         gameObject.SetActive(true); // Load UI È°¼ºÈ­
         StartCoroutine(LoadScene());
            
