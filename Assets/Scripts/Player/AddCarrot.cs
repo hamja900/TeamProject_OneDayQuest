@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class AddCarrot : MonoBehaviour
 {
-    private Animator _animator;
+    public Animator _animator;
+
 
     [SerializeField] private GameObject _plusOne;
 
@@ -13,7 +14,7 @@ public class AddCarrot : MonoBehaviour
         _animator = GetComponent<Animator>();
     }
     public void addCarrotAnim()
-    { 
+    {
         _plusOne.SetActive(true);
         _animator.SetTrigger("addCarrot");
     }

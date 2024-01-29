@@ -169,7 +169,7 @@ public class gameManager : MonoBehaviour
             }
 
             AudioManager.instance.SoundPlayOneShot(AudioManager.instance.carrotHarvest);
-            
+            PlusOneEffect();
             
             
             
