@@ -11,7 +11,15 @@ public class Shop : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Load();
+        try
+        {
+            Load();
+        }
+        catch
+        {
+            return;
+        }
+        
     }
     private void Update()
     {
@@ -21,18 +29,9 @@ public class Shop : MonoBehaviour
 
     void Load()
     {
-        int total = gameManager.I.totalScore;
-        if(total > 0)
-        {
             PlayerPrefs.GetInt("Point", gameManager.I.totalScore);
             PlayerPrefs.GetInt("ExtraSpeed", gameManager.I.speedItem);
             PlayerPrefs.GetInt("ExtraBugCount", gameManager.I.bugItem);
-        }
-
-
-
-
-
     }
     void Save()
     {
@@ -43,8 +42,14 @@ public class Shop : MonoBehaviour
 
     void ShowCurrentPoint()
     {
-        int currentPoint = gameManager.I.totalScore;
-        currentPointTxt.text = currentPoint.ToString();
+        try
+        {
+            currentPointTxt.text = gameManager.I.totalScore.ToString();
+        }
+        catch
+        {
+            currentPointTxt.text = 0.ToString();
+        }
     }
 
 
