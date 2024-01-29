@@ -169,6 +169,8 @@ public class gameManager : MonoBehaviour
             }
 
             AudioManager.instance.SoundPlayOneShot("CarrotHarvest");
+            addCarrot.addCarrotAnim();
+            
             
             
         }
@@ -210,11 +212,7 @@ public class gameManager : MonoBehaviour
         SceneManager.LoadScene("StartScene");
     }
 
-    public void PlusOneEffect()
-    {
-        transform.position = plusOnePoint.transform.position;
-        addCarrot.addCarrotAnim();
-    }
+   
 
 
 }
