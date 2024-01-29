@@ -39,13 +39,13 @@ public class RainDrops : MonoBehaviour
             _waterGauge = collision.GetComponent<WaterGauge>();
             if (gameObject.tag == "NormalRain")
             {
-                gameManager.I.GetPoint(0);
+                gameManager.I.GetScoreNpoint(0);
                 gameManager.I.GrowthCarrot();
                 prefab.SetActive(false);
             }
             else if ( gameObject.tag == "HighRain")
             {
-                gameManager.I.GetPoint(1);
+                gameManager.I.GetScoreNpoint(1);
                 gameManager.I.GrowthCarrot();
                 prefab.SetActive(false);
             }
