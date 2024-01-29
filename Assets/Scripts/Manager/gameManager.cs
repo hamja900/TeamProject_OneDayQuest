@@ -224,15 +224,15 @@ public class gameManager : MonoBehaviour
 
     void LoadData()
     {
-        PlayerPrefs.GetInt("Point", totalScore);
-        PlayerPrefs.GetInt("ExtraSpeed",speedItem);
-        PlayerPrefs.GetInt("ExtraBugCount", bugItem);
+        PlayerPrefs.GetInt("Point", point);
+        bool BugItem = System.Convert.ToBoolean(PlayerPrefs.GetInt("ExtraSpeed"));
+        bool SpeedItem = System.Convert.ToBoolean(PlayerPrefs.GetInt("ExtraBugCount"));
     }
     void SaveData()
     {
-        PlayerPrefs.SetInt("Point",totalScore);
-        PlayerPrefs.SetInt("ExtraSpeed",speedItem);
-        PlayerPrefs.SetInt("ExtraBugCount", bugItem);
+        PlayerPrefs.SetInt("Point",point);
+        PlayerPrefs.SetInt("ExtraSpeed", System.Convert.ToInt16(speedItem));
+        PlayerPrefs.SetInt("ExtraBugCount", System.Convert.ToInt16(bugItem));
     }
 
 
