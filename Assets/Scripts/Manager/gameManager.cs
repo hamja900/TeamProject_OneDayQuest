@@ -61,7 +61,7 @@ public class gameManager : MonoBehaviour
         }
 
         difficultyType = 3;
-        AudioManager.instance.audioSource.clip = AudioManager.instance.gameBgmClip;
+        AudioManager.instance.audioSource.clip = AudioManager.instance.audioClipDic["GameBgm"];
         GameReset();
 
     }
@@ -163,7 +163,7 @@ public class gameManager : MonoBehaviour
                 GameClear();
             }
 
-            AudioManager.instance.SoundPlayOneShot(AudioManager.instance.carrotHarvest);
+            AudioManager.instance.SoundPlayOneShot("CarrotHarvest");
             
         }
         if (current >= maxcount)
@@ -177,7 +177,7 @@ public class gameManager : MonoBehaviour
     public void GameOver()
     {
         AudioManager.instance.GameCheck(false);
-        AudioManager.instance.SoundPlayOneShot(AudioManager.instance.gameOver);
+        AudioManager.instance.SoundPlayOneShot("GameOver");
         gameOver.SetActive(true);
         Time.timeScale = 0.0f;
     }
@@ -185,7 +185,7 @@ public class gameManager : MonoBehaviour
     public void GameClear()
     {
         AudioManager.instance.GameCheck(false);
-        AudioManager.instance.SoundPlayOneShot(AudioManager.instance.gameClear);
+        AudioManager.instance.SoundPlayOneShot("GameClear");
         gameClear.SetActive(true);
         Time.timeScale = 0.0f;
     }
