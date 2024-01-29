@@ -48,6 +48,9 @@ public class gameManager : MonoBehaviour
     public int maxBug = 3;
     public int bugCount = 0;
 
+    public int point;
+    public int speedItem;
+    public int bugItem;
 
     void Awake()
     {
@@ -60,6 +63,7 @@ public class gameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        LoadData();
         if (difficultyPopUp || panel)
         {
             Time.timeScale = 0;
@@ -134,14 +138,10 @@ public class gameManager : MonoBehaviour
 
     }
 
-    public void GetPoint(int array)
+    public void GetScoreNpoint(int array)
     {
         current += dropSO[array].score;
-        if (current < 0)
-        {
-            current = 0;
-        }
-
+        point += dropSO[array].point;
     }
     
     public void BugCount()
@@ -188,6 +188,7 @@ public class gameManager : MonoBehaviour
         AudioManager.instance.SoundPlayOneShot("GameOver");
         gameOver.SetActive(true);
         Time.timeScale = 0.0f;
+        SaveData();
     }
 
     public void GameClear()
@@ -196,6 +197,7 @@ public class gameManager : MonoBehaviour
         AudioManager.instance.SoundPlayOneShot("GameClear");
         gameClear.SetActive(true);
         Time.timeScale = 0.0f;
+        SaveData();
     }
 
     public void ReStart()
@@ -212,7 +214,19 @@ public class gameManager : MonoBehaviour
         SceneManager.LoadScene("StartScene");
     }
 
-   
+    void LoadData()
+    {
+        PlayerPrefs.GetInt("Point", point);
+        PlayerPrefs.GetInt("ExtraSpeed",speedItem);
+        PlayerPrefs.GetInt("ExtraBugCount", bugItem);
+    }
+    void SaveData()
+    {
+        PlayerPrefs.SetInt("Point",point);
+        PlayerPrefs.SetInt("ExtraSpeed",speedItem);
+        PlayerPrefs.SetInt("ExtraBugCount", bugItem);
+    }
+
 
 
 }
