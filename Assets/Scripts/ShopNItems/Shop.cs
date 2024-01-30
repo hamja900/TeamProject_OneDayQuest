@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Android.Types;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,50 +8,51 @@ using UnityEngine.UI;
 public class Shop : MonoBehaviour
 {
     public Text currentPointTxt;
+    public GameObject soldOut1;
+    public GameObject soldOut2;
 
     // Start is called before the first frame update
     void Start()
     {
-        try
-        {
-            Load();
-        }
-        catch
-        {
-            return;
-        }
+        ShowCurrentPoint();
 
     }
     private void Update()
     {
         ShowCurrentPoint();
+        ShowGoods1();
+        ShowGoods2();
 
     }
 
-    void Load()
-    {
-        PlayerPrefs.GetInt("Point", gameManager.I.point);
-        bool bugItem = System.Convert.ToBoolean(PlayerPrefs.GetInt("ExtraBugCount"));
-        bool speedItem = System.Convert.ToBoolean(PlayerPrefs.GetInt("ExtraSpeed"));
-    }
-    void Save()
-    {
-        PlayerPrefs.SetInt("Point", gameManager.I.point);
-        PlayerPrefs.SetInt("ExtraSpeed", System.Convert.ToInt16(gameManager.I.speedItem));
-        PlayerPrefs.SetInt("ExtraBugCount", System.Convert.ToInt16(gameManager.I.bugItem));
-    }
+    
 
     void ShowCurrentPoint()
     {
-        try
-        {
-            currentPointTxt.text = gameManager.I.totalScore.ToString();
-        }
-        catch
-        {
-            currentPointTxt.text = 0.ToString();
-        }
+        currentPointTxt.text = gameManager.totalPoint.ToString();
     }
 
+    void ShowGoods1()
+    {
+        if (gameManager.bugItem)
+        {
+            soldOut1.SetActive(true);
+        }
+        else
+        {
+            soldOut1.SetActive(false);
+        }
+    }
+    void ShowGoods2()
+    {
+        if(gameManager.speedItem)
+        {
+            soldOut2.SetActive(true);
+        }
+        else
+        {
+            soldOut2.SetActive(false);
+        }
+    }
 
 }
