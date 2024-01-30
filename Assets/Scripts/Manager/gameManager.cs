@@ -235,7 +235,5 @@ public class gameManager : MonoBehaviour
         PlayerPrefs.SetInt("ExtraBugCount", System.Convert.ToInt16(bugItem));
     }
 
-
-
 }
 
