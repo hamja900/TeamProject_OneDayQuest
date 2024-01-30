@@ -49,8 +49,8 @@ public class gameManager : MonoBehaviour
 
     public int totalScore;
     public int point = 0;
-    public int speedItem = 0;
-    public int bugItem = 0;
+    public bool speedItem =false;
+    public bool bugItem = false;
 
     void Awake()
     {
@@ -234,8 +234,6 @@ public class gameManager : MonoBehaviour
         PlayerPrefs.SetInt("ExtraSpeed", System.Convert.ToInt16(speedItem));
         PlayerPrefs.SetInt("ExtraBugCount", System.Convert.ToInt16(bugItem));
     }
-
-
 
 }
 

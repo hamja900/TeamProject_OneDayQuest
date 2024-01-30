@@ -19,7 +19,7 @@ public class Shop : MonoBehaviour
         {
             return;
         }
-        
+
     }
     private void Update()
     {
