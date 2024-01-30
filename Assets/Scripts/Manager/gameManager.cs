@@ -11,10 +11,14 @@ using UnityEngine.UI;
 public class gameManager : MonoBehaviour
 {
     public static gameManager I;
+    public static int totalPoint;
+    public static bool speedItem = false;
+    public static bool bugItem = false;
+
 
     [Header("■ SO")]
     public DropSO[] dropSO;
-
+    public ItemSO[] itemSO;
 
     [Header("■ Text")]
     public Text StageText; // 당근 성장단계 텍스트
@@ -47,10 +51,8 @@ public class gameManager : MonoBehaviour
     [HideInInspector] public int difficultyType;
     #endregion
 
-    public int totalScore;
-    public int point = 0;
-    public bool speedItem =false;
-    public bool bugItem = false;
+    private int point = 0;
+   
 
     void Awake()
     {
@@ -63,7 +65,6 @@ public class gameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        LoadData();
         if (difficultyPopUp || panel)
         {
             Time.timeScale = 0;
@@ -72,6 +73,7 @@ public class gameManager : MonoBehaviour
         difficultyType = 3;
         AudioManager.instance.audioSource.clip = AudioManager.instance.audioClipDic["GameBgm"];
         GameReset();
+        ItemApply();
 
     }
 
@@ -206,34 +208,33 @@ public class gameManager : MonoBehaviour
 
     public void ReStart()
     {
-        totalScore += point;
-        SaveData();
+        totalPoint += point;
+        speedItem = false;
+        ResetItem();
         SceneManager.LoadScene("GameScene");
     }
 
     public void StartScene()
     {
         AudioManager.instance.AudioManagerDestroy();
-        totalScore += point;
-        SaveData();
-
+        totalPoint += point;
         Time.timeScale = 1f;
-
+        ResetItem();
         SceneManager.LoadScene("StartScene");
     }
 
-    void LoadData()
+    public void ItemApply()
     {
-        PlayerPrefs.GetInt("Point", point);
-        bool BugItem = System.Convert.ToBoolean(PlayerPrefs.GetInt("ExtraSpeed"));
-        bool SpeedItem = System.Convert.ToBoolean(PlayerPrefs.GetInt("ExtraBugCount"));
-    }
-    void SaveData()
-    {
-        PlayerPrefs.SetInt("Point",point);
-        PlayerPrefs.SetInt("ExtraSpeed", System.Convert.ToInt16(speedItem));
-        PlayerPrefs.SetInt("ExtraBugCount", System.Convert.ToInt16(bugItem));
+        if(bugItem)
+        {
+            maxBug += itemSO[1].ExtraBugCount;
+        }
     }
 
+    public void ResetItem()
+    {
+        speedItem = false;
+        bugItem = false;
+    }
 }
 

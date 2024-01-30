@@ -20,6 +20,11 @@ public class PlayerMovement : MonoBehaviour
     }
     void Start()
     {
+        if (gameManager.speedItem)
+        {
+            speed += gameManager.I.itemSO[0].ExtraSpeed;
+        }
+
         _controller.OnMoveEvent += Move;
     }
 
@@ -35,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void ApplyMovement(Vector2 dir)
     {
+        
         dir = dir * speed;
         MoveLimit();
 
