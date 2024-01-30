@@ -49,8 +49,8 @@ public class gameManager : MonoBehaviour
 
     public int totalScore;
     public int point = 0;
-    public int speedItem = 0;
-    public int bugItem = 0;
+    public bool speedItem =false;
+    public bool bugItem = false;
 
     void Awake()
     {

@@ -13,6 +13,7 @@ public class Items : MonoBehaviour
     public Image Icon;
     public Text NameTxt;
     public Text DescriptionTxt;
+    public Text PriceTxt;
 
     public ItemSO itemSO;
 
@@ -30,7 +31,10 @@ public class Items : MonoBehaviour
         Text[] texts = GetComponentsInChildren<Text>();
         NameTxt = texts[0];
         DescriptionTxt = texts[1];
+        PriceTxt = texts[2];
         NameTxt.text = itemSO.Name;
         DescriptionTxt.text = itemSO.Description;
+        PriceTxt.text = itemSO.Price.ToString();
+       
     }
 }
